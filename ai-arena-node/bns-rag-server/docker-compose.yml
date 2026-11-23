@@ -1,0 +1,16 @@
+services:
+  db:
+    image: pgvector/pgvector:pg19-trixie
+    container_name: rag_pgvector_db
+    restart: always
+    environment:
+      POSTGRES_USER: raguser
+      POSTGRES_PASSWORD: ragpassword
+      POSTGRES_DB: ragdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgvector_data:/var/lib/postgresql
+
+volumes:
+  pgvector_data:

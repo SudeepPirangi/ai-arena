@@ -1,0 +1,44 @@
+{
+  "name": "bns-rag-server",
+  "version": "1.0.0",
+  "description": "A Node.js based RAG application",
+  "keywords": [
+    "RAG",
+    "OpenAI",
+    "AI",
+    "LangChain",
+    "LangSmith",
+    "Node.js"
+  ],
+  "license": "ISC",
+  "author": "Sudeep Pirangi",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@langchain/community": "^1.1.29",
+    "@langchain/core": "^1.4.2",
+    "@langchain/openai": "^1.8.4",
+    "@langchain/pgvector": "^0.1.0",
+    "@langchain/textsplitters": "^1.0.2",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^5.3.0",
+    "langchain": "^1.6.7",
+    "pdf-parse": "^2.4.5",
+    "pg": "^8.23.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
