@@ -34,8 +34,9 @@ const ragPrompt = ChatPromptTemplate.fromMessages([
 function formatDocsWithCitations(docs: Document[]): string {
   return docs.map((doc, index) => {
     const file = doc.metadata?.sourceFile || "Unknown source";
-    const page = doc.metadata?.pageNumber ?? "N/A";
-    return `[Source ${index + 1} | File: ${file} | Page: ${page}\n${doc.pageContent}]`
+    const page = doc.metadata?.loc?.pageNumber ?? "N/A";
+    const pageContent = doc.pageContent
+    return `[Source ${index + 1} | File: ${file} | Page: ${page}\n${pageContent}]`
   }).join("\n\n---\n\n")
 }
 

@@ -2,6 +2,7 @@ import { PGVectorStore } from "@langchain/pgvector";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { type PoolConfig } from "pg";
 import { env } from "../config/env.js";
+import CONSTANTS from "../constants.js";
 
 const embeddings = new OpenAIEmbeddings({
   model: env.EMBEDDING_MODEL,
@@ -12,7 +13,7 @@ const pgConfig = {
   postgresConnectionOptions: {
     connectionString: env.DATABASE_URL
   } as PoolConfig,
-  tableName: "bns_rag_documents",
+  tableName: CONSTANTS.BNS_RAG_TABLE,
   columns: {
     idColumnName: "id",
     vectorColumnName: "embedding",

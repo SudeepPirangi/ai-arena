@@ -2,6 +2,7 @@ import express, {type Express, type Request, type Response} from 'express';
 import cors from 'cors';
 import {env} from './config/env.js'
 import chatRoutes from './routes/chatRoutes.js'
+import ingestRoutes from "./routes/ingestRoutes.js"
 
 const app: Express = express()
 
@@ -21,6 +22,7 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 app.use('/api', chatRoutes);
+app.use('/api', ingestRoutes)
 
 app.listen(env.PORT, () => {
   console.log(`Server running on http://localhost:${env.PORT}`)
