@@ -1,3 +1,18 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* flex-wrap: wrap; */
+  gap: 50px;
+  padding: 30px 50px;
+}
+
 header > nav {
   padding: 15px;
   display: flex;
@@ -14,10 +29,14 @@ header > nav {
 
 main {
   flex: 1;
-  display: flex;
-  padding: 15px;
 }
 
 footer {
   padding: 15px;
+  border-top: 1px solid var(--border);
+}
+
+.flat-link {
+  text-decoration: none;
+  color: var(--text)
 }
