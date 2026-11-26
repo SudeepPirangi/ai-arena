@@ -13,6 +13,9 @@ const envSchema = z.object({
   EMBEDDING_MODEL: z.string().default(EMBEDDING_MODEL),
   CHAT_MODEL: z.string().default(OPENAI_CHAT_MODEL),
   DATABASE_URL: z.url("DATABASE_URL must be a valid Postgres URL"),
+  LANGCHAIN_TRACING_V2: z.string().optional(),
+  LANGCHAIN_API_KEY: z.string().optional(),
+  LANGCHAIN_PROJECT: z.string().default("bns-rag-prod")
 })
 
 const parsed = envSchema.safeParse(process.env);

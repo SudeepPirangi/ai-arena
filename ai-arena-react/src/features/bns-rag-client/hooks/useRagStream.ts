@@ -41,7 +41,7 @@ export function useRagStream() {
       }
 
       setUploadStatus(
-        `Ready: ${data.filename} (${data.chunksCount} chunks indexed)`,
+        `Ready: ${data.fileName} (${data.chunksCount} chunks indexed)`,
       );
     } catch (err) {
       setError(err instanceof Error ? err.message : "PDF upload failed");
