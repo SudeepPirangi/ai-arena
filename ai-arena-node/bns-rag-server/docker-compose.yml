@@ -11,6 +11,26 @@ services:
       - "5432:5432"
     volumes:
       - pgvector_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U raguser -d ragdb"]
+      interval: 30s # 5s
+      timeout: 30s # 5s
+      retries: 5
+      # start_period: 30s
+
+  api:
+    build: ../bns-rag-server
+    container_name: bns_rag_api_server
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file:
+      - ../bns-rag-server/.env
+    environment:
+      DATABASE_URL: postgresql://raguser:ragpassword@db:5432/ragdb
+    depends_on:
+      db:
+        condition: service_healthy
 
 volumes:
   pgvector_data:
